@@ -1,3 +1,18 @@
+/**
+ * Componente: Home
+ *
+ * Página inicial do sistema com informações e navegação principal.
+ *
+ * Funcionalidades:
+ * - Exibir hero section com boas-vindas
+ * - Mostrar opções de navegação baseadas no estado de autenticação
+ * - Apresentar cards com features do sistema
+ * - Redirecionar para áreas específicas (login, registro, dashboard, agendamentos)
+ *
+ * Hooks utilizados:
+ * - useAuth: Verifica se o usuário está autenticado
+ */
+
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
@@ -6,6 +21,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      {/* Hero section com título e ações */}
       <div className="hero">
         <h1>Bem-vindo ao ClickBeard</h1>
         <p className="hero-subtitle">
@@ -13,6 +29,7 @@ const Home = () => {
           rápida e prática!
         </p>
 
+        {/* Ações condicionais baseadas em autenticação */}
         <div className="hero-actions">
           {isAuthenticated ? (
             <>
@@ -36,6 +53,7 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Cards de features do sistema */}
       <div className="features">
         <div className="feature-card">
           <h3>Agendamento Fácil</h3>

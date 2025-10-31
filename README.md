@@ -123,7 +123,7 @@ Antes de começar, você precisará ter instalado:
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/clickbeard.git
+git clone https://github.com/Morillos/ClickBeard_Murilo_Gallon_Barcelos.git
 cd clickbeard
 ```
 

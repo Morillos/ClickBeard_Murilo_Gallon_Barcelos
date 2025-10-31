@@ -1,5 +1,5 @@
 /**
- * ✅ Estilos: AdminDashboard
+ * Estilos: AdminDashboard
  *
  * Estilos específicos do painel administrativo com abas.
  */
@@ -15,7 +15,7 @@
   color: var(--dark);
 }
 
-/* ✅ Abas principais */
+/* Abas principais */
 .main-tabs {
   display: flex;
   gap: 10px;
@@ -45,7 +45,7 @@
   border-bottom-color: var(--primary-color);
 }
 
-/* ✅ Sub-abas */
+/* Sub-abas */
 .sub-tabs {
   display: flex;
   gap: 8px;
@@ -73,7 +73,7 @@
   border-color: var(--primary-color);
 }
 
-/* ✅ Conteúdo das abas */
+/* Conteúdo das abas */
 .tab-content {
   background-color: var(--white);
   border-radius: 8px;
@@ -81,7 +81,7 @@
   box-shadow: var(--shadow);
 }
 
-/* ✅ Tabela de agendamentos */
+/* Tabela de agendamentos */
 .appointments-table {
   overflow-x: auto;
 }
@@ -110,7 +110,7 @@
   background-color: #f8f9fa;
 }
 
-/* ✅ Status badges */
+/* Status badges */
 .status-badge {
   padding: 4px 12px;
   border-radius: 12px;

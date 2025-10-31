@@ -1,5 +1,5 @@
 /**
- * ✅ Componente: AdminSpecialties
+ * Componente: AdminSpecialties
  *
  * Gerenciamento de especialidades (serviços) no painel administrativo.
  *
@@ -18,29 +18,29 @@ import { useState, useEffect } from 'react';
 import { specialtyAPI } from '../services/api';
 
 const AdminSpecialties = () => {
-  // ✅ Estados principais
+  //  Estados principais
   const [specialties, setSpecialties] = useState([]);
   const [editingSpecialty, setEditingSpecialty] = useState(null);
 
-  // ✅ Estados de controle
+  //  Estados de controle
   const [loading, setLoading] = useState(true);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [showSpecialtyForm, setShowSpecialtyForm] = useState(false);
 
-  // ✅ Estado do formulário
+  // Estado do formulário
   const [newSpecialty, setNewSpecialty] = useState({
     name: '',
     description: ''
   });
 
-  // ✅ Carrega especialidades ao montar componente
+  // Carrega especialidades ao montar componente
   useEffect(() => {
     loadSpecialties();
   }, []);
 
   /**
-   * ✅ Carrega todas as especialidades do backend
+   * Carrega todas as especialidades do backend
    */
   const loadSpecialties = async () => {
     try {
@@ -58,7 +58,7 @@ const AdminSpecialties = () => {
   };
 
   /**
-   * ✅ Cria uma nova especialidade
+   * Cria uma nova especialidade
    */
   const handleCreateSpecialty = async (e) => {
     e.preventDefault();
@@ -80,7 +80,7 @@ const AdminSpecialties = () => {
   };
 
   /**
-   * ✅ Inicia edição de uma especialidade
+   * Inicia edição de uma especialidade
    */
   const handleStartEdit = (specialty) => {
     setEditingSpecialty({ ...specialty });
@@ -88,14 +88,14 @@ const AdminSpecialties = () => {
   };
 
   /**
-   * ✅ Cancela edição
+   * Cancela edição
    */
   const handleCancelEdit = () => {
     setEditingSpecialty(null);
   };
 
   /**
-   * ✅ Salva alterações da especialidade editada
+   * Salva alterações da especialidade editada
    */
   const handleSaveEdit = async () => {
     if (!editingSpecialty) return;
@@ -119,7 +119,7 @@ const AdminSpecialties = () => {
   };
 
   /**
-   * ✅ Exclui uma especialidade
+   * Exclui uma especialidade
    */
   const handleDeleteSpecialty = async (specialtyId) => {
     if (!window.confirm('Tem certeza que deseja excluir esta especialidade?')) {
@@ -146,7 +146,7 @@ const AdminSpecialties = () => {
 
   return (
     <div className="admin-specialties">
-      {/* ✅ Mensagens de feedback */}
+      {/* Mensagens de feedback */}
       {successMessage && (
         <div className="alert alert-success">{successMessage}</div>
       )}
@@ -168,7 +168,7 @@ const AdminSpecialties = () => {
           </button>
         </div>
 
-        {/* ✅ Formulário de criação de especialidade */}
+        {/* Formulário de criação de especialidade */}
         {showSpecialtyForm && (
           <form className="form-card" onSubmit={handleCreateSpecialty}>
             <div className="form-group">
@@ -202,7 +202,7 @@ const AdminSpecialties = () => {
           </form>
         )}
 
-        {/* ✅ Lista de especialidades */}
+        {/* Lista de especialidades */}
         <div className="specialties-list">
           {specialties.length === 0 ? (
             <p className="empty-message">Nenhuma especialidade cadastrada</p>
@@ -210,7 +210,7 @@ const AdminSpecialties = () => {
             specialties.map((specialty) => (
               <div key={specialty.id} className="specialty-card">
                 {editingSpecialty?.id === specialty.id ? (
-                  /* ✅ Modo de edição */
+                  /* Modo de edição */
                   <div className="specialty-edit">
                     <div className="form-group">
                       <label>Nome</label>
@@ -254,7 +254,7 @@ const AdminSpecialties = () => {
                     </div>
                   </div>
                 ) : (
-                  /* ✅ Modo de visualização */
+                  /* Modo de visualização */
                   <>
                     <div className="specialty-info">
                       <strong>{specialty.name}</strong>

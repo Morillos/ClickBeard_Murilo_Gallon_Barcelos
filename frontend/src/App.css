@@ -1,14 +1,12 @@
 /**
- * ✅ App.css - Estilos Globais e Imports
+ * Estilos Globais e Imports
  *
- * Este arquivo importa todos os módulos CSS e define apenas estilos globais,
+ * Este arquivo importa todos os módulos CSS e define estilos globais,
  * variáveis e resets. Estilos específicos estão em seus respectivos arquivos:
  *
  * - layout/ → Estruturas globais (navbar, containers)
- * - components/ → Componentes reutilizáveis (buttons, forms, alerts)
+ * - components/ → Componentes (buttons, forms, alerts)
  * - pages/ → Páginas específicas (admin e cliente)
- *   - Admin: AdminDashboard, AdminBarbers, AdminSpecialties
- *   - Cliente: Home, Auth (Login/Register), ClientDashboard, NewAppointment
  */
 
 /* ========================================
@@ -42,7 +40,7 @@
 :root {
   /* ========================================
      PALETA DE CORES - TEMA VERDE PROFISSIONAL
-     Base: #80be36 (Verde Vibrante)
+     Base: #80be36 
      ======================================== */
 
   /* Cores principais - Verde */
@@ -70,7 +68,7 @@
   --info-color: #2196f3;
   --info-dark: #1976d2;
 
-  /* Cores neutras modernas */
+  /* Cores neutras  */
   --white: #ffffff;
   --dark: #1a1f2e;
   --light: #f5f7fa;

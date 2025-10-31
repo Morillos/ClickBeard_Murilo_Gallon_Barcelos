@@ -1,5 +1,5 @@
 /**
- * ✅ Componente: AdminBarbers
+ * Componente: AdminBarbers
  *
  * Gerenciamento de barbeiros no painel administrativo.
  *
@@ -19,32 +19,32 @@ import { useState, useEffect } from 'react';
 import { barberAPI, specialtyAPI } from '../services/api';
 
 const AdminBarbers = () => {
-  // ✅ Estados principais
+  // Estados principais
   const [barbers, setBarbers] = useState([]);
   const [specialties, setSpecialties] = useState([]);
   const [selectedBarber, setSelectedBarber] = useState(null);
   const [selectedSpecialtyIds, setSelectedSpecialtyIds] = useState([]);
 
-  // ✅ Estados de controle
+  // Estados de controle
   const [loading, setLoading] = useState(true);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [showBarberForm, setShowBarberForm] = useState(false);
 
-  // ✅ Estado do formulário de novo barbeiro
+  // Estado do formulário de novo barbeiro
   const [newBarber, setNewBarber] = useState({
     name: '',
     age: '',
     hire_date: ''
   });
 
-  // ✅ Carrega dados iniciais ao montar componente
+  // Carrega dados iniciais ao montar componente
   useEffect(() => {
     loadData();
   }, []);
 
   /**
-   * ✅ Carrega barbeiros e especialidades do backend
+   * Carrega barbeiros e especialidades do backend
    */
   const loadData = async () => {
     try {
@@ -67,7 +67,7 @@ const AdminBarbers = () => {
   };
 
   /**
-   * ✅ Seleciona um barbeiro e carrega suas especialidades
+   * Seleciona um barbeiro e carrega suas especialidades
    */
   const handleSelectBarber = async (barber) => {
     try {
@@ -84,7 +84,7 @@ const AdminBarbers = () => {
   };
 
   /**
-   * ✅ Adiciona ou remove uma especialidade da seleção
+   * Adiciona ou remove uma especialidade da seleção
    */
   const handleToggleSpecialty = (specialtyId) => {
     setSelectedSpecialtyIds((prev) => {
@@ -97,7 +97,7 @@ const AdminBarbers = () => {
   };
 
   /**
-   * ✅ Salva as especialidades do barbeiro no backend
+   * Salva as especialidades do barbeiro no backend
    */
   const handleSaveBarberSpecialties = async () => {
     if (!selectedBarber) return;
@@ -119,7 +119,7 @@ const AdminBarbers = () => {
   };
 
   /**
-   * ✅ Cria um novo barbeiro
+   * Cria um novo barbeiro
    */
   const handleCreateBarber = async (e) => {
     e.preventDefault();
@@ -141,7 +141,7 @@ const AdminBarbers = () => {
   };
 
   /**
-   * ✅ Exclui um barbeiro
+   * Exclui um barbeiro
    */
   const handleDeleteBarber = async (barberId) => {
     if (!window.confirm('Tem certeza que deseja excluir este barbeiro?')) {
@@ -174,7 +174,7 @@ const AdminBarbers = () => {
 
   return (
     <div className="admin-barbers">
-      {/* ✅ Mensagens de feedback */}
+      {/* Mensagens de feedback */}
       {successMessage && (
         <div className="alert alert-success">{successMessage}</div>
       )}
@@ -183,7 +183,7 @@ const AdminBarbers = () => {
       )}
 
       <div className="barbers-grid">
-        {/* ✅ Coluna 1: Lista de Barbeiros */}
+        {/* Coluna 1: Lista de Barbeiros */}
         <div className="barbers-section">
           <div className="section-header">
             <h2>Barbeiros</h2>
@@ -195,7 +195,7 @@ const AdminBarbers = () => {
             </button>
           </div>
 
-          {/* ✅ Formulário de criação de barbeiro */}
+          {/* Formulário de criação de barbeiro */}
           {showBarberForm && (
             <form className="form-card" onSubmit={handleCreateBarber}>
               <div className="form-group">
@@ -235,7 +235,7 @@ const AdminBarbers = () => {
             </form>
           )}
 
-          {/* ✅ Lista de barbeiros */}
+          {/* Lista de barbeiros */}
           <div className="items-list">
             {barbers.length === 0 ? (
               <p className="empty-message">Nenhum barbeiro cadastrado</p>
@@ -265,7 +265,7 @@ const AdminBarbers = () => {
           </div>
         </div>
 
-        {/* ✅ Coluna 2: Especialidades do Barbeiro Selecionado */}
+        {/* Coluna 2: Especialidades do Barbeiro Selecionado */}
         <div className="specialties-section">
           <div className="section-header">
             <h2>
@@ -281,7 +281,7 @@ const AdminBarbers = () => {
                 <p className="empty-message">Nenhuma especialidade cadastrada</p>
               ) : (
                 <>
-                  {/* ✅ Lista de checkboxes para especialidades */}
+                  {/* Lista de checkboxes para especialidades */}
                   <div className="checkbox-list">
                     {specialties.map((specialty) => (
                       <label key={specialty.id} className="checkbox-label">
@@ -298,7 +298,7 @@ const AdminBarbers = () => {
                     ))}
                   </div>
 
-                  {/* ✅ Botão para salvar */}
+                  {/* Botão para salvar */}
                   <button
                     className="btn btn-primary"
                     onClick={handleSaveBarberSpecialties}

@@ -99,11 +99,6 @@ const NewAppointment = () => {
     return today.toISOString().split('T')[0];
   };
 
-  const getMaxDate = () => {
-    const maxDate = new Date();
-    maxDate.setMonth(maxDate.getMonth() + 3);
-    return maxDate.toISOString().split('T')[0];
-  };
 
   return (
     <div className="appointment-container">
@@ -169,7 +164,6 @@ const NewAppointment = () => {
                 value={selectedDate}
                 onChange={(e) => setSelectedDate(e.target.value)}
                 min={getMinDate()}
-                max={getMaxDate()}
                 required
               />
             </div>

@@ -1,7 +1,6 @@
 /**
- * ✅ Estilos: Buttons (Botões)
+ * Estilos: Buttons (Botões)
  *
- * Botões modernos com nova paleta de cores verde #80be36
  */
 
 .btn {
@@ -88,16 +87,6 @@
 
 .btn-danger:hover {
   background-color: var(--danger-dark);
-}
-
-/* Warning - Amarelo aviso */
-.btn-warning {
-  background-color: var(--warning-color);
-  color: var(--dark);
-}
-
-.btn-warning:hover {
-  background-color: var(--warning-dark);
 }
 
 /* Info - Azul informação */

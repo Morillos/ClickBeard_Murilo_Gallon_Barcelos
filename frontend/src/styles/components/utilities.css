@@ -1,5 +1,5 @@
 /**
- * ✅ Utilities.css - Classes Utilitárias Globais
+ * Utilities.css - Classes Utilitárias Globais
  *
  * Classes helper para loading, empty states, status badges
  * com nova paleta de cores moderna
@@ -79,14 +79,6 @@
   background-color: #ffebee;
   color: var(--danger-dark);
   border: 1px solid #ffcdd2;
-}
-
-/* Pending - Amarelo */
-.status-pending,
-.status-badge.status-pending {
-  background-color: #fff8e1;
-  color: var(--warning-dark);
-  border: 1px solid #ffecb3;
 }
 
 /* Active - Verde principal */

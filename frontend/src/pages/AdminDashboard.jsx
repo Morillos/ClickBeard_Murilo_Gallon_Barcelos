@@ -1,5 +1,5 @@
 /**
- * ✅ Componente: AdminDashboard
+ * Componente: AdminDashboard
  *
  * Painel administrativo principal com navegação por abas.
  *
@@ -24,17 +24,17 @@ import AdminSpecialties from './AdminSpecialties';
 const AdminDashboard = () => {
   const navigate = useNavigate();
 
-  // ✅ Controle de abas principais
+  // Controle de abas principais
   const [activeTab, setActiveTab] = useState('appointments');
   const [activeSubTab, setActiveSubTab] = useState('today');
 
-  // ✅ Estados para agendamentos
+  // Estados para agendamentos
   const [todayAppointments, setTodayAppointments] = useState([]);
   const [futureAppointments, setFutureAppointments] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // ✅ Carrega agendamentos apenas quando a aba appointments está ativa
+  // Carrega agendamentos apenas quando a aba appointments está ativa
   useEffect(() => {
     if (activeTab === 'appointments') {
       loadAppointments();
@@ -42,7 +42,7 @@ const AdminDashboard = () => {
   }, [activeTab]);
 
   /**
-   * ✅ Carrega agendamentos do dia e futuros em paralelo
+   * Carrega agendamentos do dia e futuros em paralelo
    */
   const loadAppointments = async () => {
     try {
@@ -64,7 +64,7 @@ const AdminDashboard = () => {
   };
 
   /**
-   * ✅ Marca um agendamento como concluído
+   * Marca um agendamento como concluído
    */
   const handleComplete = async (appointmentId) => {
     if (!window.confirm('Marcar este agendamento como concluído?')) {
@@ -81,7 +81,7 @@ const AdminDashboard = () => {
   };
 
   /**
-   * ✅ Cancela um agendamento
+   * Cancela um agendamento
    */
   const handleCancel = async (appointmentId) => {
     if (!window.confirm('Deseja realmente cancelar este agendamento?')) {
@@ -98,7 +98,7 @@ const AdminDashboard = () => {
   };
 
   /**
-   * ✅ Formata data para padrão brasileiro (dd/mm/aaaa)
+   * Formata data para padrão brasileiro (dd/mm/aaaa)
    */
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -106,14 +106,14 @@ const AdminDashboard = () => {
   };
 
   /**
-   * ✅ Formata hora removendo segundos (HH:MM)
+   * Formata hora removendo segundos (HH:MM)
    */
   const formatTime = (timeString) => {
     return timeString.substring(0, 5);
   };
 
   /**
-   * ✅ Retorna label traduzido do status
+   * Retorna label traduzido do status
    */
   const getStatusLabel = (status) => {
     const labels = {
@@ -125,14 +125,14 @@ const AdminDashboard = () => {
   };
 
   /**
-   * ✅ Retorna classe CSS baseada no status
+   * Retorna classe CSS baseada no status
    */
   const getStatusClass = (status) => {
     return `status-badge status-${status}`;
   };
 
   /**
-   * ✅ Renderiza o conteúdo da aba de agendamentos
+   * Renderiza o conteúdo da aba de agendamentos
    */
   const renderAppointmentsContent = () => {
     if (loading) {
@@ -143,7 +143,7 @@ const AdminDashboard = () => {
       <div className="appointments-container">
         {error && <div className="alert alert-error">{error}</div>}
 
-        {/* ✅ Sub-abas: Hoje / Futuros */}
+        {/* Sub-abas: Hoje / Futuros */}
         <div className="sub-tabs">
           <button
             className={`sub-tab ${activeSubTab === 'today' ? 'active' : ''}`}
@@ -160,7 +160,7 @@ const AdminDashboard = () => {
         </div>
 
         <div className="appointments-content">
-          {/* ✅ Sub-aba: Agendamentos de Hoje */}
+          {/* Sub-aba: Agendamentos de Hoje */}
           {activeSubTab === 'today' && (
             <div className="appointments-section">
               <h2>Agendamentos de Hoje</h2>
@@ -220,7 +220,7 @@ const AdminDashboard = () => {
             </div>
           )}
 
-          {/* ✅ Sub-aba: Agendamentos Futuros */}
+          {/* Sub-aba: Agendamentos Futuros */}
           {activeSubTab === 'future' && (
             <div className="appointments-section">
               <h2>Agendamentos Futuros</h2>
@@ -282,7 +282,7 @@ const AdminDashboard = () => {
     <div className="admin-dashboard">
       <h1>Painel Administrativo</h1>
 
-      {/* ✅ Abas principais: Agendamentos | Barbeiros | Especialidades */}
+      {/* Abas principais: Agendamentos | Barbeiros | Especialidades */}
       <div className="main-tabs">
         <button
           className={`main-tab ${activeTab === 'appointments' ? 'active' : ''}`}
@@ -304,7 +304,7 @@ const AdminDashboard = () => {
         </button>
       </div>
 
-      {/* ✅ Conteúdo da aba ativa */}
+      {/* Conteúdo da aba ativa */}
       <div className="tab-content">
         {activeTab === 'appointments' && renderAppointmentsContent()}
         {activeTab === 'barbers' && <AdminBarbers />}

@@ -3,7 +3,7 @@
 -- Popular usuários de exemplo
 INSERT INTO users (name, email, password, is_admin) VALUES
 ('Admin User', 'admin@clickbeard.com', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', TRUE),
-('João Silva', 'joao@email.com', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', FALSE),
+('Mateus Silva', 'mateus@email.com', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', FALSE),
 ('Maria Santos', 'maria@email.com', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', FALSE),
 ('Pedro Costa', 'pedro@email.com', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', FALSE);
 
@@ -20,7 +20,7 @@ INSERT INTO specialties (name, description) VALUES
 ('Barba', 'Aparar e modelar barba'),
 ('Sobrancelha', 'Design de sobrancelha masculina'),
 ('Corte de Tesoura', 'Corte artesanal com tesoura'),
-('Pigmentação', 'Pigmentação de barba e cabelo'),
+('Tintura', 'Tintura de barba e cabelo'),
 ('Platinado', 'Descoloração e platinado');
 
 -- Associar especialidades aos barbeiros

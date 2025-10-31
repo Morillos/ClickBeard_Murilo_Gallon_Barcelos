@@ -1,5 +1,5 @@
 /**
- * ✅ NewAppointment.css - Estilos da Página de Novo Agendamento
+ * NewAppointment.css - Estilos da Página de Novo Agendamento
  *
  * Formulário de criação de agendamento com seleção de horários.
  */
@@ -113,17 +113,6 @@
   border-color: var(--secondary-color);
   background-color: var(--secondary-color);
   color: var(--text-light);
-}
-
-.time-slot:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.time-slot:disabled:hover {
-  transform: none;
-  border-color: var(--border-color);
-  background-color: var(--bg-primary);
 }
 
 /* ========================================

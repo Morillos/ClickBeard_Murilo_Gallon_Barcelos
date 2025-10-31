@@ -1,5 +1,5 @@
 /**
- * ✅ Componente: Navbar
+ * Componente: Navbar
  *
  * Barra de navegação principal do sistema.
  *
@@ -21,7 +21,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   /**
-   * ✅ Faz logout e redireciona para login
+   * Faz logout e redireciona para login
    */
   const handleLogout = () => {
     logout();
@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        {/* ✅ Logo do sistema */}
+        {/* Logo do sistema */}
         {isAdmin() ? (
           // Admin: Apenas link para Administração
           <Link to="/admin" className="navbar-logo">
@@ -49,7 +49,7 @@ const Navbar = () => {
         <div className="navbar-menu">
           {user ? (
             <>
-              {/* ✅ Renderiza links diferentes para admin e cliente */}
+              {/* Renderiza links diferentes para admin e cliente */}
               {isAdmin() ? (
                 // Admin: Apenas link para Administração
                 <Link to="/admin" className="navbar-link">
@@ -67,7 +67,7 @@ const Navbar = () => {
                 </>
               )}
 
-              {/* ✅ Informações do usuário e botão de logout */}
+              {/* Informações do usuário e botão de logout */}
               <div className="navbar-user">
                 <span>{user.name}</span>
                 <button onClick={handleLogout} className="btn btn-secondary">

@@ -282,6 +282,22 @@ ClickBeard/
 │   │   │   └── Admin.jsx            # Painel administrativo
 │   │   ├── services/
 │   │   │   └── api.js               # Configuração Axios
+│   │   ├── styles/
+│   │   │   ├── components/
+│   │   │   │   ├── alerts.css
+│   │   │   │   ├── buttons.css
+│   │   │   │   ├── forms.css
+│   │   │   │   └── utilities.css
+│   │   │   ├── layout/
+│   │   │   │   └── navbar.css
+│   │   │   └── pages/
+│   │   │       ├── AdminBarbers.css
+│   │   │       ├── AdminDashboard.css
+│   │   │       ├── AdminSpecialties.css
+│   │   │       ├── Auth.css
+│   │   │       ├── ClientDashboard.css
+│   │   │       ├── Home.css
+│   │   │       └── NewAppointment.css
 │   │   ├── App.jsx
 │   │   ├── main.jsx
 │   │   ├── App.css

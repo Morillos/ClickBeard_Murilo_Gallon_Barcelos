@@ -1,0 +1,258 @@
+/**
+ * ✅ App.css - Estilos Globais e Imports
+ *
+ * Este arquivo importa todos os módulos CSS e define apenas estilos globais,
+ * variáveis e resets. Estilos específicos estão em seus respectivos arquivos:
+ *
+ * - layout/ → Estruturas globais (navbar, containers)
+ * - components/ → Componentes reutilizáveis (buttons, forms, alerts)
+ * - pages/ → Páginas específicas (admin e cliente)
+ *   - Admin: AdminDashboard, AdminBarbers, AdminSpecialties
+ *   - Cliente: Home, Auth (Login/Register), ClientDashboard, NewAppointment
+ */
+
+/* ========================================
+   IMPORTS - Módulos CSS
+   ======================================== */
+
+/* Layout */
+@import './styles/layout/navbar.css';
+
+/* Components */
+@import './styles/components/buttons.css';
+@import './styles/components/forms.css';
+@import './styles/components/alerts.css';
+@import './styles/components/utilities.css';
+
+/* Pages - Admin */
+@import './styles/pages/AdminDashboard.css';
+@import './styles/pages/AdminBarbers.css';
+@import './styles/pages/AdminSpecialties.css';
+
+/* Pages - Cliente */
+@import './styles/pages/Home.css';
+@import './styles/pages/Auth.css';
+@import './styles/pages/ClientDashboard.css';
+@import './styles/pages/NewAppointment.css';
+
+/* ========================================
+   VARIÁVEIS GLOBAIS
+   ======================================== */
+
+:root {
+  /* ========================================
+     PALETA DE CORES - TEMA VERDE PROFISSIONAL
+     Base: #80be36 (Verde Vibrante)
+     ======================================== */
+
+  /* Cores principais - Verde */
+  --primary-color: #80be36;
+  --primary-dark: #6a9e2d;
+  --primary-light: #a3d063;
+  --primary-lighter: #d4e8b8;
+
+  /* Cores secundárias - Roxo Elegante */
+  --secondary-color: #5856d6;
+  --secondary-dark: #4240b8;
+  --secondary-light: #7b79e8;
+
+  /* Cor de destaque - Laranja Coral */
+  --accent-color: #ff8c42;
+  --accent-dark: #e67a35;
+
+  /* Estados de ação */
+  --success-color: #4caf50;
+  --success-dark: #388e3c;
+  --danger-color: #ff5252;
+  --danger-dark: #e63946;
+  --warning-color: #ffc107;
+  --warning-dark: #f9a825;
+  --info-color: #2196f3;
+  --info-dark: #1976d2;
+
+  /* Cores neutras modernas */
+  --white: #ffffff;
+  --dark: #1a1f2e;
+  --light: #f5f7fa;
+
+  /* Cores de fundo */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f7fa;
+  --bg-tertiary: #e8ecf0;
+  --bg-dark: #1a1f2e;
+  --bg-green-light: #f0f8e8;
+
+  /* Cores de texto */
+  --text-primary: #1a1f2e;
+  --text-secondary: #6b7280;
+  --text-light: #ffffff;
+  --text-muted: #9ca3af;
+
+  /* Bordas */
+  --border-color: #e5e7eb;
+  --border-color-dark: #d1d5db;
+  --border-radius: 8px;
+  --border-radius-sm: 4px;
+  --border-radius-lg: 12px;
+
+  /* Sombras modernas */
+  --shadow: 0 2px 8px rgba(26, 31, 46, 0.08);
+  --shadow-sm: 0 1px 3px rgba(26, 31, 46, 0.06);
+  --shadow-md: 0 4px 12px rgba(26, 31, 46, 0.1);
+  --shadow-lg: 0 10px 30px rgba(26, 31, 46, 0.12);
+  --shadow-xl: 0 20px 40px rgba(26, 31, 46, 0.15);
+  --shadow-green: 0 4px 12px rgba(128, 190, 54, 0.25);
+
+  /* Espaçamentos */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Transições suaves */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+
+/* ========================================
+   ESTILOS BASE
+   ======================================== */
+
+body {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* ========================================
+   LAYOUT PRINCIPAL
+   ======================================== */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 80px; /* Altura da navbar */
+}
+
+/* ========================================
+   CONTAINERS E CARDS
+   ======================================== */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+.card {
+  background: var(--bg-primary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+/* ========================================
+   TIPOGRAFIA
+   ======================================== */
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+p {
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   LINKS
+   ======================================== */
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* ========================================
+   UTILITÁRIOS
+   ======================================== */
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+
+.p-1 { padding: var(--spacing-xs); }
+.p-2 { padding: var(--spacing-sm); }
+.p-3 { padding: var(--spacing-md); }
+.p-4 { padding: var(--spacing-lg); }
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-sm);
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+  }
+
+  .main-content {
+    padding-top: 70px;
+  }
+}

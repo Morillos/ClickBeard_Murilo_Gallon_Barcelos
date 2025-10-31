@@ -1,0 +1,64 @@
+/**
+ * ✅ Estilos: Alerts (Mensagens de Feedback)
+ *
+ * Mensagens modernas de sucesso, erro, aviso e informação
+ * com nova paleta de cores
+ */
+
+.alert {
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 1.5rem;
+  border-left: 4px solid;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Success - Verde */
+.alert-success {
+  background-color: #e8f5e9;
+  border-color: var(--success-color);
+  color: var(--success-dark);
+}
+
+/* Error/Danger - Vermelho */
+.alert-error,
+.alert-danger {
+  background-color: #ffebee;
+  border-color: var(--danger-color);
+  color: var(--danger-dark);
+}
+
+/* Warning - Amarelo */
+.alert-warning {
+  background-color: #fff8e1;
+  border-color: var(--warning-color);
+  color: var(--warning-dark);
+}
+
+/* Info - Azul */
+.alert-info {
+  background-color: #e3f2fd;
+  border-color: var(--info-color);
+  color: var(--info-dark);
+}
+
+/* Primary - Verde principal */
+.alert-primary {
+  background-color: var(--bg-green-light);
+  border-color: var(--primary-color);
+  color: var(--primary-dark);
+}

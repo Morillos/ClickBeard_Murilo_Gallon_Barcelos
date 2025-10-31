@@ -1,0 +1,126 @@
+/**
+ * ✅ Estilos: Navbar (Barra de Navegação)
+ *
+ * Barra de navegação moderna com verde vibrante #80be36
+ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: var(--white);
+  padding: 1rem 0;
+  box-shadow: var(--shadow-green);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white) !important;
+  text-decoration: none !important;
+  letter-spacing: -0.5px;
+  transition: all var(--transition-fast);
+}
+
+.navbar-logo:hover {
+  opacity: 0.9;
+  text-decoration: none !important;
+  transform: scale(1.02);
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-link {
+  color: var(--white) !important;
+  text-decoration: none !important;
+  transition: all var(--transition-fast);
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--white);
+  transition: width var(--transition-fast);
+}
+
+.navbar-link:hover {
+  text-decoration: none !important;
+  opacity: 1;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 1.5rem;
+  padding-left: 1.5rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.navbar-user span {
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+.navbar-user .btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  transition: all var(--transition-fast);
+}
+
+.navbar-user .btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+
+  .navbar-menu {
+    gap: 1rem;
+  }
+
+  .navbar-logo {
+    font-size: 1.25rem;
+  }
+
+  .navbar-user {
+    margin-left: 1rem;
+    padding-left: 1rem;
+  }
+}

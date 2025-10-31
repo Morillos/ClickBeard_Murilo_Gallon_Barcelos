@@ -1,0 +1,149 @@
+/**
+ * ✅ Auth.css - Estilos das Páginas de Autenticação
+ *
+ * Estilos compartilhados entre Login e Register.
+ * Layout centralizado com card de autenticação.
+ */
+
+/* ========================================
+   AUTH CONTAINER
+   ======================================== */
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px);
+  padding: var(--spacing-lg);
+}
+
+/* ========================================
+   AUTH CARD
+   ======================================== */
+
+.auth-card {
+  background-color: var(--bg-primary);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  max-width: 450px;
+}
+
+.auth-card h1 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  font-size: 2rem;
+}
+
+.auth-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   AUTH FORM
+   ======================================== */
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.auth-card .form-group {
+  margin-bottom: var(--spacing-sm);
+}
+
+.auth-card .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.auth-card .form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color var(--transition-fast);
+}
+
+.auth-card .form-group input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+}
+
+.auth-card .btn {
+  width: 100%;
+  margin-top: var(--spacing-sm);
+}
+
+/* ========================================
+   AUTH FOOTER
+   ======================================== */
+
+.auth-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.auth-footer p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.auth-footer a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.auth-footer a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .auth-container {
+    padding: var(--spacing-sm);
+    min-height: calc(100vh - 150px);
+  }
+
+  .auth-card {
+    padding: 2rem;
+  }
+
+  .auth-card h1 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    padding: var(--spacing-xs);
+  }
+
+  .auth-card {
+    padding: 1.5rem;
+  }
+
+  .auth-card h1 {
+    font-size: 1.5rem;
+  }
+
+  .auth-subtitle {
+    font-size: 0.9rem;
+  }
+}

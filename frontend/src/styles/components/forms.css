@@ -1,0 +1,158 @@
+/**
+ * ✅ Estilos: Forms (Formulários)
+ *
+ * Formulários modernos com destaque na cor verde #80be36
+ */
+
+.form-card {
+  background: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9375rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+  border-color: var(--border-color-dark);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(128, 190, 54, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-hint {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 0.375rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* ========================================
+   CHECKBOX E RADIO CUSTOMIZADO
+   ======================================== */
+
+.checkbox-label,
+.radio-label {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.75rem;
+  cursor: pointer;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.checkbox-label:hover,
+.radio-label:hover {
+  background-color: var(--bg-green-light);
+  border-color: var(--primary-light);
+}
+
+.checkbox-label input[type="checkbox"],
+.radio-label input[type="radio"] {
+  margin-right: 0.75rem;
+  margin-top: 0.125rem;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--primary-color);
+}
+
+.checkbox-content,
+.radio-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.checkbox-content strong,
+.radio-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.checkbox-content span,
+.radio-content span {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.checkbox-list,
+.radio-list {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 1rem;
+}
+
+/* ========================================
+   ESTADOS DE VALIDAÇÃO
+   ======================================== */
+
+.form-group.error input,
+.form-group.error textarea,
+.form-group.error select {
+  border-color: var(--danger-color);
+}
+
+.form-group.error .form-hint {
+  color: var(--danger-color);
+}
+
+.form-group.success input,
+.form-group.success textarea,
+.form-group.success select {
+  border-color: var(--success-color);
+}
+
+.form-group.success .form-hint {
+  color: var(--success-color);
+}

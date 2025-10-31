@@ -1,0 +1,202 @@
+/**
+ * ✅ ClientDashboard.css - Estilos da Página de Dashboard do Cliente
+ *
+ * Visualização dos agendamentos do cliente com opção de cancelamento.
+ */
+
+/* ========================================
+   DASHBOARD CONTAINER
+   ======================================== */
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* ========================================
+   APPOINTMENTS LIST
+   ======================================== */
+
+.appointments-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.appointment-card {
+  background-color: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-normal);
+}
+
+.appointment-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   APPOINTMENT HEADER
+   ======================================== */
+
+.appointment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.appointment-header h3 {
+  color: var(--primary-color);
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+/* ========================================
+   STATUS BADGE
+   ======================================== */
+
+.status-badge {
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status-badge.status-scheduled {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-badge.status-completed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.status-cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* ========================================
+   APPOINTMENT DETAILS
+   ======================================== */
+
+.appointment-details {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.appointment-info {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.appointment-info strong {
+  margin-right: 0.5rem;
+  color: var(--primary-color);
+}
+
+/* ========================================
+   APPOINTMENT ACTIONS
+   ======================================== */
+
+.appointment-actions {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cancel-info {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* ========================================
+   EMPTY STATE
+   ======================================== */
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--bg-primary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.empty-state p {
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .dashboard-header .btn {
+    width: 100%;
+  }
+
+  .appointment-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .appointment-card {
+    padding: 1.25rem;
+  }
+
+  .appointment-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 0.5rem;
+  }
+
+  .appointment-card {
+    padding: 1rem;
+  }
+
+  .appointment-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .empty-state {
+    padding: 3rem 1.5rem;
+  }
+}

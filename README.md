@@ -107,6 +107,7 @@ src/
 ├── context/         # Context API para estado global (AuthContext)
 ├── pages/           # Páginas completas (Dashboard, AdminDashboard)
 ├── services/        # API client (Axios configurado)
+├── styles/          # Estilização das páginas e componentes (Components, layout e pages)
 └── App.jsx          # Configuração de rotas
 ```
 

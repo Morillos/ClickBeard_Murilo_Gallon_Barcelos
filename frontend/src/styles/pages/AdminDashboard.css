@@ -133,3 +133,233 @@
   background-color: #f8d7da;
   color: #842029;
 }
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.action-buttons .btn {
+  min-width: 80px;
+}
+
+/* Empty message */
+.empty-message {
+  text-align: center;
+  padding: 2rem;
+  color: var(--light-text);
+  font-style: italic;
+}
+
+/* Appointments section */
+.appointments-section h2 {
+  margin-bottom: 1.5rem;
+  color: var(--dark);
+  font-size: 1.5rem;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+/* Tablets grandes e desktops pequenos */
+@media (max-width: 1024px) {
+  .admin-dashboard {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .appointments-table table {
+    font-size: 0.9rem;
+  }
+
+  .appointments-table th,
+  .appointments-table td {
+    padding: 10px 8px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .admin-dashboard {
+    padding: 1rem;
+  }
+
+  .admin-dashboard h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Abas principais */
+  .main-tabs {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .main-tab {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+  }
+
+  /* Sub-abas */
+  .sub-tabs {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .sub-tab {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    flex: 1;
+  }
+
+  /* Conteúdo das abas */
+  .tab-content {
+    padding: 1.5rem;
+    border-radius: 6px;
+  }
+
+  .appointments-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Tabela */
+  .appointments-table {
+    margin: 0 -1.5rem;
+    padding: 0 1rem;
+  }
+
+  .appointments-table table {
+    font-size: 0.85rem;
+  }
+
+  .appointments-table th,
+  .appointments-table td {
+    padding: 8px 6px;
+    white-space: nowrap;
+  }
+
+  .appointments-table th {
+    font-size: 0.8rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  /* Action buttons */
+  .action-buttons {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .action-buttons .btn {
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  /* Status badge */
+  .status-badge {
+    padding: 3px 8px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .admin-dashboard {
+    padding: 0.75rem;
+  }
+
+  .admin-dashboard h1 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Abas principais */
+  .main-tabs {
+    gap: 4px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .main-tab {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    min-width: 100px;
+    white-space: nowrap;
+  }
+
+  /* Sub-abas */
+  .sub-tabs {
+    gap: 4px;
+  }
+
+  .sub-tab {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* Conteúdo das abas */
+  .tab-content {
+    padding: 1rem;
+    border-radius: 4px;
+  }
+
+  .appointments-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Tabela - Layout mobile otimizado */
+  .appointments-table {
+    margin: 0 -1rem;
+    padding: 0 0.5rem;
+  }
+
+  .appointments-table table {
+    font-size: 0.75rem;
+    min-width: 600px; /* Força scroll horizontal */
+  }
+
+  .appointments-table th,
+  .appointments-table td {
+    padding: 6px 4px;
+    font-size: 0.75rem;
+  }
+
+  .appointments-table th {
+    font-size: 0.7rem;
+    padding: 8px 4px;
+  }
+
+  /* Action buttons em mobile */
+  .action-buttons {
+    min-width: 100px;
+  }
+
+  .action-buttons .btn {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    min-width: 60px;
+  }
+
+  /* Status badge menor */
+  .status-badge {
+    padding: 2px 6px;
+    font-size: 0.7rem;
+  }
+
+  /* Empty message */
+  .empty-message {
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}

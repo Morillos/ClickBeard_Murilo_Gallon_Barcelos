@@ -5,12 +5,14 @@
  *
  * Funcionalidades:
  * - Listar todos os agendamentos do usuário
+ * - Filtrar agendamentos por período (Hoje, Futuros, Todos)
+ * - Filtrar apenas agendamentos com status "Agendado"
  * - Visualizar detalhes dos agendamentos (barbeiro, data, horário, status)
  * - Cancelar agendamentos com até 2 horas de antecedência
  * - Navegar para criação de novos agendamentos
  *
  * Hooks utilizados:
- * - useState: Gerencia estados locais (agendamentos, loading, erros)
+ * - useState: Gerencia estados locais (agendamentos, loading, erros, filtros)
  * - useEffect: Carrega agendamentos ao montar o componente
  * - useAuth: Acessa informações do usuário autenticado
  */
@@ -26,6 +28,10 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const { user } = useAuth();
+
+  // Estados de filtro
+  const [activeFilter, setActiveFilter] = useState('all'); // 'all', 'today', 'future'
+  const [showOnlyScheduled, setShowOnlyScheduled] = useState(false);
 
   // Carrega agendamentos ao montar componente
   useEffect(() => {
@@ -116,6 +122,76 @@ const Dashboard = () => {
     return diffInHours >= 2;
   };
 
+  /**
+   * Verifica se o agendamento é de hoje
+   */
+  const isToday = (appointment) => {
+    const today = new Date();
+    const dateOnly = appointment.appointment_date.split('T')[0];
+    const appointmentDate = new Date(dateOnly);
+    
+    return (
+      appointmentDate.getUTCFullYear() === today.getFullYear() &&
+      appointmentDate.getUTCMonth() === today.getMonth() &&
+      appointmentDate.getUTCDate() === today.getDate()
+    );
+  };
+
+  /**
+   * Verifica se o agendamento é futuro (após hoje)
+   */
+  const isFuture = (appointment) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    const dateOnly = appointment.appointment_date.split('T')[0];
+    const appointmentDate = new Date(dateOnly);
+    
+    return appointmentDate > today;
+  };
+
+  /**
+   * Filtra os agendamentos baseado nos filtros ativos
+   */
+  const getFilteredAppointments = () => {
+    let filtered = appointments;
+
+    // Filtro por período
+    if (activeFilter === 'today') {
+      filtered = filtered.filter(isToday);
+    } else if (activeFilter === 'future') {
+      filtered = filtered.filter(isFuture);
+    }
+
+    // Filtro por status "Agendado"
+    if (showOnlyScheduled) {
+      filtered = filtered.filter(app => app.status === 'scheduled');
+    }
+
+    return filtered;
+  };
+
+  /**
+   * Conta agendamentos por filtro
+   */
+  const getCountByFilter = (filter) => {
+    let filtered = appointments;
+    
+    if (filter === 'today') {
+      filtered = filtered.filter(isToday);
+    } else if (filter === 'future') {
+      filtered = filtered.filter(isFuture);
+    }
+
+    if (showOnlyScheduled) {
+      filtered = filtered.filter(app => app.status === 'scheduled');
+    }
+
+    return filtered.length;
+  };
+
+  const filteredAppointments = getFilteredAppointments();
+
   if (loading) {
     return <div className="loading">Carregando...</div>;
   }
@@ -133,7 +209,6 @@ const Dashboard = () => {
       {/* Mensagem de erro */}
       {error && <div className="alert alert-error">{error}</div>}
 
-      {/* Lista de agendamentos ou estado vazio */}
       {appointments.length === 0 ? (
         <div className="empty-state">
           <p>Você ainda não tem agendamentos.</p>
@@ -142,47 +217,93 @@ const Dashboard = () => {
           </Link>
         </div>
       ) : (
-        <div className="appointments-list">
-          {appointments.map((appointment) => (
-            <div key={appointment.id} className="appointment-card">
-              {/* Cabeçalho do card com especialidade e status */}
-              <div className="appointment-header">
-                <h3>{appointment.specialty_name}</h3>
-                <span className={getStatusClass(appointment.status)}>
-                  {getStatusLabel(appointment.status)}
-                </span>
-              </div>
-
-              {/* Detalhes do agendamento */}
-              <div className="appointment-details">
-                <div className="appointment-info">
-                  <strong>Barbeiro:</strong> {appointment.barber_name}
-                </div>
-                <div className="appointment-info">
-                  <strong>Data:</strong> {formatDate(appointment.appointment_date)}
-                </div>
-                <div className="appointment-info">
-                  <strong>Horário:</strong> {formatTime(appointment.appointment_time)}
-                </div>
-              </div>
-
-              {/* Ações de cancelamento (se permitido) */}
-              {canCancel(appointment) && (
-                <div className="appointment-actions">
-                  <button
-                    onClick={() => handleCancel(appointment.id)}
-                    className="btn btn-danger"
-                  >
-                    Cancelar Agendamento
-                  </button>
-                  <p className="cancel-info">
-                    Cancelamento disponível até 2 horas antes
-                  </p>
-                </div>
-              )}
+        <>
+          {/* Filtros */}
+          <div className="filters-container">
+            {/* Sub-abas de período */}
+            <div className="sub-tabs">
+              <button
+                className={`sub-tab ${activeFilter === 'all' ? 'active' : ''}`}
+                onClick={() => setActiveFilter('all')}
+              >
+                Todos ({getCountByFilter('all')})
+              </button>
+              <button
+                className={`sub-tab ${activeFilter === 'today' ? 'active' : ''}`}
+                onClick={() => setActiveFilter('today')}
+              >
+                Hoje ({getCountByFilter('today')})
+              </button>
+              <button
+                className={`sub-tab ${activeFilter === 'future' ? 'active' : ''}`}
+                onClick={() => setActiveFilter('future')}
+              >
+                Futuros ({getCountByFilter('future')})
+              </button>
             </div>
-          ))}
-        </div>
+
+            {/* Checkbox para filtrar apenas agendados */}
+            <div className="status-filter">
+              <label className="checkbox-label">
+                <input
+                  type="checkbox"
+                  checked={showOnlyScheduled}
+                  onChange={(e) => setShowOnlyScheduled(e.target.checked)}
+                />
+                <span>Mostrar apenas agendados</span>
+              </label>
+            </div>
+          </div>
+
+          {/* Lista de agendamentos filtrados */}
+          {filteredAppointments.length === 0 ? (
+            <div className="empty-state">
+              <p>Nenhum agendamento encontrado com os filtros selecionados.</p>
+            </div>
+          ) : (
+            <div className="appointments-list">
+              {[...filteredAppointments].reverse().map((appointment) => (
+                <div key={appointment.id} className="appointment-card">
+                  {/* Cabeçalho do card com especialidade e status */}
+                  <div className="appointment-header">
+                    <h3>{appointment.specialty_name}</h3>
+                    <span className={getStatusClass(appointment.status)}>
+                      {getStatusLabel(appointment.status)}
+                    </span>
+                  </div>
+
+                  {/* Detalhes do agendamento */}
+                  <div className="appointment-details">
+                    <div className="appointment-info">
+                      <strong>Barbeiro:</strong> {appointment.barber_name}
+                    </div>
+                    <div className="appointment-info">
+                      <strong>Data:</strong> {formatDate(appointment.appointment_date)}
+                    </div>
+                    <div className="appointment-info">
+                      <strong>Horário:</strong> {formatTime(appointment.appointment_time)}
+                    </div>
+                  </div>
+
+                  {/* Ações de cancelamento (se permitido) */}
+                  {canCancel(appointment) && (
+                    <div className="appointment-actions">
+                      <button
+                        onClick={() => handleCancel(appointment.id)}
+                        className="btn btn-danger"
+                      >
+                        Cancelar Agendamento
+                      </button>
+                      <p className="cancel-info">
+                        Cancelamento disponível até 2 horas antes
+                      </p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

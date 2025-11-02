@@ -30,7 +30,7 @@
 /* Pages - Cliente */
 @import './styles/pages/Home.css';
 @import './styles/pages/Auth.css';
-@import './styles/pages/ClientDashboard.css';
+@import './styles/pages/Dashboard.css';
 @import './styles/pages/NewAppointment.css';
 
 /* ========================================

@@ -37,8 +37,8 @@ CREATE TABLE specialties (
 -- Tabela relação Barbeiros-Especialidades (many-to-many)
 CREATE TABLE barber_specialties (
     id SERIAL PRIMARY KEY,
-    barber_id INTEGER NOT NULL REFERENCES barbers(id) ON DELETE CASCADE,
-    specialty_id INTEGER NOT NULL REFERENCES specialties(id) ON DELETE CASCADE,
+    barber_id INTEGER NOT NULL REFERENCES barbers(id) ,
+    specialty_id INTEGER NOT NULL REFERENCES specialties(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(barber_id, specialty_id)
 );
@@ -46,9 +46,9 @@ CREATE TABLE barber_specialties (
 -- Tabela Agendamentos
 CREATE TABLE appointments (
     id SERIAL PRIMARY KEY,
-    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    barber_id INTEGER NOT NULL REFERENCES barbers(id) ON DELETE CASCADE,
-    specialty_id INTEGER NOT NULL REFERENCES specialties(id) ON DELETE CASCADE,
+    user_id INTEGER NOT NULL REFERENCES users(id) ,
+    barber_id INTEGER NOT NULL REFERENCES barbers(id),
+    specialty_id INTEGER NOT NULL REFERENCES specialties(id),
     appointment_date DATE NOT NULL,
     appointment_time TIME NOT NULL,
     status VARCHAR(20) DEFAULT 'scheduled' CHECK (status IN ('scheduled', 'completed', 'cancelled')),

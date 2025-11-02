@@ -5,7 +5,6 @@
  */
 
 .navbar {
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -108,11 +107,13 @@
 /* Responsividade */
 @media (max-width: 768px) {
   .navbar-container {
-    padding: 0 1rem;
+    padding: 1rem;
+    flex-direction: column;
   }
 
   .navbar-menu {
     gap: 1rem;
+    flex-direction: column;
   }
 
   .navbar-logo {

@@ -25,7 +25,7 @@ async function resetPasswords() {
 
     const users = [
       'admin@clickbeard.com',
-      'joao@email.com',
+      'mateus@email.com',
       'maria@email.com',
       'pedro@email.com'
     ];

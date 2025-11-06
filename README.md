@@ -388,7 +388,7 @@ Após executar o script `seed.sql`, você terá os seguintes usuários:
 - **Senha:** password123
 
 ### Clientes
-- **Email:** joao@email.com - **Senha:** password123
+- **Email:** mateus@email.com - **Senha:** password123
 - **Email:** maria@email.com - **Senha:** password123
 - **Email:** pedro@email.com - **Senha:** password123
 
